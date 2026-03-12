@@ -14,14 +14,20 @@
   "input": {
     "salary": "Annual gross salary",
     "salaryPlaceholder": "e.g., 50000",
+    "salaryTooltip": "Your annual salary before taxes. Use gross for more accurate comparisons.",
     "currency": "Currency",
+    "currencyTooltip": "The currency you currently receive your salary in.",
     "country": "Country where you live",
     "countryPlaceholder": "Select a country",
+    "countryTooltip": "Your current country of residence.",
     "region": "Region/State",
     "regionPlaceholder": "Select a region",
+    "regionTooltip": "More specific location within the country.",
     "industry": "Industry/Sector",
     "industryPlaceholder": "Select your sector",
+    "industryTooltip": "Salary multipliers vary by industry. Tech usually has higher purchasing power.",
     "calculate": "Calculate equivalences",
+    "calculateTooltip": "See how your salary compares worldwide!",
     "reset": "Reset",
     "errorInvalid": "Enter a valid number",
     "errorZero": "Salary must be greater than 0",
@@ -143,6 +149,10 @@
   "footer": {
     "disclaimer": "Data is approximate and based on public statistics. This does not constitute financial advice.",
     "sources": "Sources: World Bank, Numbeo, OECD"
+  },
+  "data": {
+    "lastUpdate": "Data updated",
+    "source": "Sources: World Bank, Numbeo, OECD"
   },
   "languages": {
     "es": "Español",
@@ -771,5 +781,13 @@
     "10year": "10-Year Projection (investing 20% of salary)",
     "after10": "After 10 years",
     "disclaimer": "Investments involve risk. Past performance does not guarantee future results. Consult a financial advisor."
+  },
+  "liveData": {
+    "label": "Live Rates",
+    "toggleTooltip": "Use real-time exchange rates",
+    "on": "ON",
+    "off": "OFF",
+    "description": "Use ECB exchange rates (updated daily)",
+    "staleWarning": "Results may vary based on current exchange rates"
   }
 }

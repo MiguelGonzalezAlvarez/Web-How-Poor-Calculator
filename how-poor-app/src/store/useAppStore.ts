@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { countries, exchangeRates } from '../data/countries';
 import { AppState, CalculationResult, Country, Region, Filters, SearchHistoryItem, Scenario } from '../types';
-import { calculateEquivalences as calculateEquivalencesService, parseSalary } from '../services/CalculationService';
+import { calculateEquivalences as calculateEquivalencesService, parseSalary, fetchLiveRates } from '../services/CalculationService';
 
 const initialFilters: Filters = {
   countries: [],
@@ -36,6 +36,13 @@ export const useAppStore = create<AppState>()(
   darkMode: false,
   salaryType: 'gross',
   savedScenarios: [],
+  quickMode: false,
+  liveDataMode: false,
+
+  setQuickMode: (mode: boolean) => set({ quickMode: mode }),
+  toggleQuickMode: () => set((state) => ({ quickMode: !state.quickMode })),
+  setLiveDataMode: (mode: boolean) => set({ liveDataMode: mode }),
+  toggleLiveDataMode: () => set((state) => ({ liveDataMode: !state.liveDataMode })),
 
       setSalary: (salary: string) => set({ salary }),
       
@@ -150,8 +157,8 @@ export const useAppStore = create<AppState>()(
         }));
       },
 
-      calculateEquivalences: () => {
-        const { salary, currency, selectedCountry, selectedRegion, industry } = get();
+      calculateEquivalences: async () => {
+        const { salary, currency, selectedCountry, selectedRegion, industry, liveDataMode } = get();
         
         if (!salary || !selectedCountry || !selectedRegion) {
           return;
@@ -162,6 +169,16 @@ export const useAppStore = create<AppState>()(
 
         set({ isLoading: true });
 
+        let rates = exchangeRates;
+        
+        if (liveDataMode) {
+          try {
+            rates = await fetchLiveRates(currency);
+          } catch (e) {
+            console.warn('Failed to fetch live rates, using static data');
+          }
+        }
+
         const result = calculateEquivalences(
           {
             salary: salaryNum,
@@ -171,7 +188,7 @@ export const useAppStore = create<AppState>()(
             industry
           },
           countries,
-          exchangeRates
+          rates
         );
 
         if (!result) {

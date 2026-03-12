@@ -1,11 +1,19 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import useAppStore from '../../store/useAppStore';
+import { format } from 'date-fns';
+import { es, enUS } from 'date-fns/locale';
+import LiveDataToggle from '../UI/LiveDataToggle';
 import styles from './Header.module.scss';
+
+const DATA_UPDATE_DATE = new Date('2026-03-01');
 
 const Header: React.FC = () => {
   const { t, i18n } = useTranslation();
   const { language, setLanguage, darkMode, toggleDarkMode } = useAppStore();
+
+  const dateLocale = i18n.language === 'es' ? es : enUS;
+  const formattedDate = format(DATA_UPDATE_DATE, 'MMMM yyyy', { locale: dateLocale });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
@@ -27,7 +35,14 @@ const Header: React.FC = () => {
         
         <p className={styles.tagline}>{t('app.subtitle')}</p>
 
+        <div className={styles.dataInfo}>
+          <span className={styles.dataBadge}>
+            📊 {t('data.lastUpdate')}: {formattedDate}
+          </span>
+        </div>
+
         <div className={styles.actions}>
+          <LiveDataToggle />
           <button 
             className={styles.themeButton} 
             onClick={toggleDarkMode}

@@ -3,15 +3,15 @@ const STATIC_CACHE = 'how-poor-static-v1';
 const DYNAMIC_CACHE = 'how-poor-dynamic-v1';
 
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/icons/icon.svg'
+  './',
+  './index.html',
+  './manifest.json',
+  './icons/icon.svg'
 ];
 
 const STATIC_ASSETS_URLS = [
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png'
+  './icons/icon-192x192.png',
+  './icons/icon-512x512.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -115,7 +115,7 @@ async function networkFirst(request) {
     }
 
     if (request.destination === 'document') {
-      return caches.match('/index.html');
+      return caches.match('./index.html');
     }
     
     return new Response('Offline', { status: 503 });

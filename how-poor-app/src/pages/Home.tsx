@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import useAppStore from '../store/useAppStore';
@@ -50,6 +51,9 @@ import HistoryPanel from '../components/UI/HistoryPanel';
 import ScenariosManager from '../components/UI/ScenariosManager';
 import WhatIfCalculator from '../components/UI/WhatIfCalculator';
 import ErrorBoundary from '../components/UI/ErrorBoundary';
+import ExecutiveSummary from '../components/UI/ExecutiveSummary';
+import QuickActions from '../components/UI/QuickActions';
+import QuickModeToggle from '../components/UI/QuickModeToggle';
 import { CardSkeleton, TableSkeleton, ChartSkeleton } from '../components/UI/SectionSkeleton';
 import { ToastProvider } from '../context/ToastContext';
 import { useSEO } from '../components/SEO/useSEO';
@@ -57,10 +61,14 @@ import AdSense from '../components/UI/AdSense';
 import ExportButton from '../components/UI/ExportButton';
 import EnhancedExportButton from '../components/UI/EnhancedExportButton';
 import AffiliateLinks from '../components/UI/AffiliateLinks';
+import OnboardingTour from '../components/UI/OnboardingTour';
 import styles from './Home.module.scss';
+
+const ONBOARDING_KEY = 'how-poor-onboarding-seen';
 
 const HomeContent: React.FC = () => {
   const { t } = useTranslation();
+  const [showOnboarding, setShowOnboarding] = useState(false);
   const { 
     selectedCountry, 
     selectedRegion, 
@@ -74,6 +82,18 @@ const HomeContent: React.FC = () => {
     isLoading,
     originCountry
   } = useAppStore();
+
+  useEffect(() => {
+    const seenOnboarding = localStorage.getItem(ONBOARDING_KEY);
+    if (!seenOnboarding && !isCalculated) {
+      setShowOnboarding(true);
+    }
+  }, [isCalculated]);
+
+  const handleOnboardingComplete = () => {
+    localStorage.setItem(ONBOARDING_KEY, 'true');
+    setShowOnboarding(false);
+  };
 
   useSEO({
     salary,
@@ -162,7 +182,12 @@ const HomeContent: React.FC = () => {
                 </button>
                 <ShareButton />
                 <EnhancedExportButton />
+                <QuickModeToggle />
               </motion.div>
+
+              <ExecutiveSummary />
+
+              <QuickActions />
 
               <motion.section 
                 className={styles.resultsHeader}
@@ -502,6 +527,7 @@ const HomeContent: React.FC = () => {
       <AffiliateLinks />
       <CountryDetail />
       {showLifestyleCalculator && <LifestyleCalculator onClose={toggleLifestyleCalculator} />}
+      {showOnboarding && <OnboardingTour onComplete={handleOnboardingComplete} />}
       <ToastContainer />
     </div>
   );

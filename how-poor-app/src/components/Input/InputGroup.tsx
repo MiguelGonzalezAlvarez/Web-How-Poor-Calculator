@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { currencies, industries, countries } from '../../data/countries';
 import useAppStore from '../../store/useAppStore';
 import SalaryTypeToggle from './SalaryTypeToggle';
+import Tooltip from '../UI/Tooltip';
 import styles from './InputGroup.module.scss';
 
 const SalaryInput: React.FC = () => {
@@ -32,9 +33,14 @@ const SalaryInput: React.FC = () => {
 
   return (
     <div className={styles.inputWrapper}>
-      <label className={styles.label} htmlFor="salary-input">
-        {t('input.salary')}
-      </label>
+      <div className={styles.labelRow}>
+        <label className={styles.label} htmlFor="salary-input">
+          {t('input.salary')}
+        </label>
+        <Tooltip content={t('input.salaryTooltip')}>
+          <span className={styles.helpIcon}>ℹ️</span>
+        </Tooltip>
+      </div>
       <input
         id="salary-input"
         type="text"

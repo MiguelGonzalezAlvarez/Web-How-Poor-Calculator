@@ -119,6 +119,8 @@ export interface AppState {
   darkMode: boolean;
   salaryType: 'gross' | 'net';
   savedScenarios: Scenario[];
+  quickMode: boolean;
+  liveDataMode: boolean;
   setSalary: (salary: string) => void;
   setCurrency: (currency: string) => void;
   setSelectedCountry: (country: string | null) => void;
@@ -144,6 +146,10 @@ export interface AppState {
   loadScenario: (id: string) => void;
   deleteScenario: (id: string) => void;
   toggleScenarioFavorite: (id: string) => void;
+  setQuickMode: (mode: boolean) => void;
+  toggleQuickMode: () => void;
+  setLiveDataMode: (mode: boolean) => void;
+  toggleLiveDataMode: () => void;
 }
 
 export interface SearchHistoryItem {

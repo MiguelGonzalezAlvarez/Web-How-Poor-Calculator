@@ -1,4 +1,5 @@
 import { Country, Region, CalculationResult, Industry } from '../types';
+import { fetchLiveExchangeRates } from './RealTimeDataService';
 
 export interface CalculationParams {
   salary: number;
@@ -22,6 +23,16 @@ export const parseSalary = (salary: string): number => {
 
 export const getExchangeRate = (currency: string, exchangeRates: Record<string, number>): number => {
   return exchangeRates[currency] || 1;
+};
+
+export const fetchLiveRates = async (baseCurrency: string = 'USD'): Promise<Record<string, number>> => {
+  try {
+    const liveData = await fetchLiveExchangeRates(baseCurrency);
+    return liveData.rates;
+  } catch (error) {
+    console.error('Failed to fetch live rates:', error);
+    return {};
+  }
 };
 
 export const calculateStatus = (ratio: number): 'better' | 'similar' | 'worse' => {

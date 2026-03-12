@@ -14,14 +14,20 @@
   "input": {
     "salary": "Salario bruto anual",
     "salaryPlaceholder": "Ej: 50000",
+    "salaryTooltip": "Tu salario anual antes de impuestos. Usa bruto para comparaciones más precisas.",
     "currency": "Moneda",
+    "currencyTooltip": "La moneda en la que recibes tu salario actualmente.",
     "country": "País donde vives",
     "countryPlaceholder": "Selecciona un país",
+    "countryTooltip": "Tu país de residencia actual.",
     "region": "Región/Estado",
     "regionPlaceholder": "Selecciona una región",
+    "regionTooltip": "Ubicación más específica dentro del país.",
     "industry": "Industria/Sector",
     "industryPlaceholder": "Selecciona tu sector",
+    "industryTooltip": "Los multiplicadores de salario varían por industria. Tech usually tiene mayor poder adquisitivo.",
     "calculate": "Calcular equivalencias",
+    "calculateTooltip": "¡Descubre cómo se compara tu salario en todo el mundo!",
     "reset": "Reiniciar",
     "errorInvalid": "Ingresa un número válido",
     "errorZero": "El salario debe ser mayor a 0",
@@ -143,6 +149,10 @@
   "footer": {
     "disclaimer": "Los datos son aproximados y se basan en estadísticas públicas. No constituyen asesoramiento financiero.",
     "sources": "Fuentes: World Bank, Numbeo, OECD"
+  },
+  "data": {
+    "lastUpdate": "Datos actualizados",
+    "source": "Fuentes: World Bank, Numbeo, OECD"
   },
   "languages": {
     "es": "Español",
@@ -771,5 +781,13 @@
     "10year": "Proyección a 10 años (invirtiendo 20% del salario)",
     "after10": "Después de 10 años",
     "disclaimer": "Las inversiones conllevan riesgo. Resultados pasados no garantizan futuros. Consulta un asesor financiero."
+  },
+  "liveData": {
+    "label": "Tasas en Vivo",
+    "toggleTooltip": "Usar tipos de cambio en tiempo real",
+    "on": "ON",
+    "off": "OFF",
+    "description": "Usa tasas de cambio del BCE (actualización diaria)",
+    "staleWarning": "Los datos pueden variar según el tipo de cambio actual"
   }
 }

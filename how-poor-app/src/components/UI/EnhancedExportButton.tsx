@@ -3,10 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import useAppStore from '../../store/useAppStore';
 import { generatePDFReport, generateQuickPDF } from '../../lib/pdfGenerator';
+import { generateInterviewPDF } from '../../lib/interviewPdfGenerator';
 import { exportToCSV, exportToPNG } from '../../lib/export';
 import styles from './EnhancedExportButton.module.scss';
 
-type ExportFormat = 'pdf' | 'csv' | 'png' | 'json';
+type ExportFormat = 'pdf' | 'csv' | 'png' | 'json' | 'interview';
 
 interface ExportOption {
   id: ExportFormat;
@@ -34,6 +35,12 @@ const EnhancedExportButton: React.FC = () => {
 
   const exportOptions: ExportOption[] = [
     {
+      id: 'interview',
+      label: isEs ? 'PDF Entrevista' : 'Interview PDF',
+      icon: '💼',
+      description: isEs ? '1 página para llevar a entrevistas' : '1 page to take to interviews'
+    },
+    {
       id: 'pdf',
       label: t('export.pdf', 'PDF Completo'),
       icon: '📄',
@@ -59,6 +66,8 @@ const EnhancedExportButton: React.FC = () => {
     }
   ];
 
+  const isEs = language === 'es';
+
   const salaryNum = salary ? parseFloat(salary.replace(/[^0-9.-]/g, '')) : 0;
 
   const handleExport = async (format: ExportFormat) => {
@@ -67,6 +76,19 @@ const EnhancedExportButton: React.FC = () => {
 
     try {
       switch (format) {
+        case 'interview':
+          if (calculatedResults.length > 0 && originCountry) {
+            generateInterviewPDF({
+              salary: salaryNum,
+              currency,
+              originCountry: originCountry.nameEs || originCountry.name,
+              originRegion: originRegion?.nameEs || originRegion?.name || '',
+              results: calculatedResults,
+              language: language as 'es' | 'en'
+            });
+          }
+          break;
+          
         case 'pdf':
           if (calculatedResults.length > 0 && originCountry) {
             await generatePDFReport(
