@@ -3,6 +3,12 @@ import autoTable from 'jspdf-autotable';
 import { CalculationResult, Country, SearchHistoryItem } from '../types';
 import { formatCurrency } from '../services/utils/formatters';
 
+interface JsPDFWithAutoTable extends jsPDF {
+  lastAutoTable?: {
+    finalY: number;
+  };
+}
+
 interface PDFExportOptions {
   language: 'es' | 'en';
   includeCharts: boolean;
@@ -162,7 +168,7 @@ export const generatePDFReport = async (
     },
   });
 
-  yPos = (doc as any).lastAutoTable.finalY + 15;
+  yPos = (doc as JsPDFWithAutoTable).lastAutoTable?.finalY ? (doc as JsPDFWithAutoTable).lastAutoTable!.finalY + 15 : yPos + 15;
 
   // Section 3: Summary Statistics
   if (yPos < pageHeight - 60) {

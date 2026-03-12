@@ -49,6 +49,8 @@ import ToastContainer from '../components/UI/ToastContainer';
 import HistoryPanel from '../components/UI/HistoryPanel';
 import ScenariosManager from '../components/UI/ScenariosManager';
 import WhatIfCalculator from '../components/UI/WhatIfCalculator';
+import ErrorBoundary from '../components/UI/ErrorBoundary';
+import { CardSkeleton, TableSkeleton, ChartSkeleton } from '../components/UI/SectionSkeleton';
 import { ToastProvider } from '../context/ToastContext';
 import { useSEO } from '../components/SEO/useSEO';
 import AdSense from '../components/UI/AdSense';
@@ -469,7 +471,9 @@ const HomeContent: React.FC = () => {
               </motion.section>
 
               <section className={styles.chartSection}>
-                <SalaryChart />
+                <ErrorBoundary>
+                  {isLoading ? <ChartSkeleton /> : <SalaryChart />}
+                </ErrorBoundary>
               </section>
 
               <section className={styles.realItemsSection}>
@@ -477,7 +481,9 @@ const HomeContent: React.FC = () => {
               </section>
 
               <section className={styles.mapSection}>
-                <WorldMap />
+                <ErrorBoundary>
+                  {isLoading ? <CardSkeleton /> : <WorldMap />}
+                </ErrorBoundary>
               </section>
             </>
           )}

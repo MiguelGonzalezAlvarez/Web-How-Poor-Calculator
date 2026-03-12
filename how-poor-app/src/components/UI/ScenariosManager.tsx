@@ -4,6 +4,7 @@ import useAppStore from '../../store/useAppStore';
 import { formatCurrency } from '../../services/utils/formatters';
 import { format } from 'date-fns';
 import { es, enUS } from 'date-fns/locale';
+import { useToast } from '../../context/ToastContext';
 import styles from './ScenariosManager.module.scss';
 
 const ScenariosManager: React.FC = () => {
@@ -18,10 +19,12 @@ const ScenariosManager: React.FC = () => {
     salary,
     currency
   } = useAppStore();
+  const { showToast } = useToast();
   
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [scenarioName, setScenarioName] = useState('');
   const [scenarioDescription, setScenarioDescription] = useState('');
+  const [deleteId, setDeleteId] = useState<string | null>(null);
 
   const dateLocale = i18n.language === 'es' ? es : enUS;
 
@@ -35,16 +38,24 @@ const ScenariosManager: React.FC = () => {
       setScenarioName('');
       setScenarioDescription('');
       setShowSaveModal(false);
+      showToast(t('scenarios.saved'), 'success');
     }
   };
 
   const handleLoad = (id: string) => {
     loadScenario(id);
+    showToast(t('scenarios.loaded'), 'success');
   };
 
   const handleDelete = (id: string) => {
-    if (window.confirm(t('scenarios.confirmDelete'))) {
-      deleteScenario(id);
+    setDeleteId(id);
+  };
+
+  const confirmDelete = () => {
+    if (deleteId) {
+      deleteScenario(deleteId);
+      showToast(t('scenarios.deleted'), 'success');
+      setDeleteId(null);
     }
   };
 
@@ -179,6 +190,26 @@ const ScenariosManager: React.FC = () => {
                 disabled={!scenarioName.trim()}
               >
                 {t('scenarios.save')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {deleteId && (
+        <div className={styles.modalOverlay} onClick={() => setDeleteId(null)}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+            <h3 className={styles.modalTitle}>{t('scenarios.delete')}</h3>
+            <p className={styles.confirmText}>{t('scenarios.confirmDelete')}</p>
+            <div className={styles.modalActions}>
+              <button className={styles.cancelButton} onClick={() => setDeleteId(null)}>
+                {t('common.cancel')}
+              </button>
+              <button 
+                className={styles.deleteConfirmButton} 
+                onClick={confirmDelete}
+              >
+                {t('scenarios.delete')}
               </button>
             </div>
           </div>

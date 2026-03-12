@@ -17,11 +17,11 @@ const SalaryInput: React.FC = () => {
     if (value) {
       const numValue = parseFloat(value);
       if (isNaN(numValue)) {
-        setError('Ingresa un número válido');
+        setError(t('input.errorInvalid'));
       } else if (numValue <= 0) {
-        setError('El salario debe ser mayor a 0');
+        setError(t('input.errorZero'));
       } else if (numValue > 10000000) {
-        setError('El salario máximo es 10,000,000');
+        setError(t('input.errorMax'));
       } else {
         setError(null);
       }

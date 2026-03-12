@@ -22,7 +22,10 @@
     "industry": "Industry/Sector",
     "industryPlaceholder": "Select your sector",
     "calculate": "Calculate equivalences",
-    "reset": "Reset"
+    "reset": "Reset",
+    "errorInvalid": "Enter a valid number",
+    "errorZero": "Salary must be greater than 0",
+    "errorMax": "Maximum salary is 10,000,000"
   },
   "scenario": {
     "title": "Lifestyle Calculator",

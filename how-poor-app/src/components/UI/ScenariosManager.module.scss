@@ -304,6 +304,24 @@
   }
 }
 
+.confirmText {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0 0 24px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.deleteConfirmButton {
+  background: var(--danger);
+  border: none;
+  color: white;
+
+  &:hover {
+    background: #dc2626;
+  }
+}
+
 @media (max-width: 640px) {
   .panel {
     padding: 12px;

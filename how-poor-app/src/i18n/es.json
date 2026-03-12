@@ -22,7 +22,10 @@
     "industry": "Industria/Sector",
     "industryPlaceholder": "Selecciona tu sector",
     "calculate": "Calcular equivalencias",
-    "reset": "Reiniciar"
+    "reset": "Reiniciar",
+    "errorInvalid": "Ingresa un número válido",
+    "errorZero": "El salario debe ser mayor a 0",
+    "errorMax": "El salario máximo es 10,000,000"
   },
   "scenario": {
     "title": "Calculadora de Estilo de Vida",

@@ -32,6 +32,7 @@ export interface Country {
   rentIndex?: number;
   qualityOfLife: QualityOfLife;
   regions: Region[];
+  industries?: Industry[];
 }
 
 export interface Currency {
@@ -128,7 +129,6 @@ export interface AppState {
   setSelectedDetailCountry: (country: string | null) => void;
   setShowLifestyleCalculator: (show: boolean) => void;
   setIsLoading: (loading: boolean) => void;
-  setLoading: (loading: boolean) => void;
   calculateEquivalences: () => void;
   reset: () => void;
   toggleLifestyleCalculator: () => void;

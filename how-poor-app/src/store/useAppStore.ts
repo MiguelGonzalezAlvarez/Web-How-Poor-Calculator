@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { countries, exchangeRates } from '../data/countries';
 import { AppState, CalculationResult, Country, Region, Filters, SearchHistoryItem, Scenario } from '../types';
+import { calculateEquivalences as calculateEquivalencesService, parseSalary } from '../services/CalculationService';
 
 const initialFilters: Filters = {
   countries: [],
@@ -73,7 +74,6 @@ export const useAppStore = create<AppState>()(
         showLifestyleCalculator: show 
       }),
 
-      setLoading: (loading: boolean) => set({ isLoading: loading }),
       setIsLoading: (loading: boolean) => set({ isLoading: loading }),
 
       setFilters: (filters: Filters) => set({ filters }),
@@ -157,79 +157,34 @@ export const useAppStore = create<AppState>()(
           return;
         }
 
-        const salaryNum = parseFloat(salary.replace(/[^0-9.-]/g, ''));
-        if (isNaN(salaryNum)) return;
+        const salaryNum = parseSalary(salary);
+        if (salaryNum === 0) return;
 
         set({ isLoading: true });
 
-        const originCountry = countries.find(c => c.id === selectedCountry);
-        const originRegion = originCountry?.regions.find(r => r.id === selectedRegion);
-        
-        if (!originRegion) {
+        const result = calculateEquivalences(
+          {
+            salary: salaryNum,
+            currency,
+            selectedCountry,
+            selectedRegion,
+            industry
+          },
+          countries,
+          exchangeRates
+        );
+
+        if (!result) {
           set({ isLoading: false });
           return;
         }
 
-        const originCurrency = currency;
-        const originRate = exchangeRates[originCurrency] || 1;
-        const salaryInUSD = salaryNum / originRate;
-
-        const originPPIndex = originRegion.purchasingPowerIndex || originCountry!.purchasingPowerIndex;
-        const originCOLIndex = originRegion.costOfLivingIndex || originCountry!.costOfLivingIndex;
-
-        const results: CalculationResult[] = countries
-          .filter(c => c.id !== selectedCountry)
-          .map(country => {
-            return country.regions.slice(0, 3).map(region => {
-              const destPPIndex = region.purchasingPowerIndex || country.purchasingPowerIndex;
-              const destCOLIndex = region.costOfLivingIndex || country.costOfLivingIndex;
-              
-              let equivalentSalary: number;
-              if (destPPIndex && originPPIndex) {
-                equivalentSalary = salaryNum * (destPPIndex / originPPIndex);
-              } else if (destCOLIndex && originCOLIndex) {
-                equivalentSalary = salaryNum * (originCOLIndex / destCOLIndex);
-              } else {
-                equivalentSalary = salaryNum * (country.gdpPppPerCapita / originCountry!.gdpPppPerCapita);
-              }
-
-              const industryMultiplier = industry === 'general' ? 1 : 
-                (country as any).industries?.find((i: any) => i.id === industry)?.salaryMultiplier || 1;
-              
-              const adjustedSalary = equivalentSalary * industryMultiplier;
-              const destRate = exchangeRates[country.currency] || 1;
-              const salaryInOriginCurrency = adjustedSalary * destRate;
-
-              const ratio = adjustedSalary / salaryNum;
-              let status: 'better' | 'similar' | 'worse' = 'similar';
-              if (ratio > 1.2) status = 'better';
-              else if (ratio < 0.8) status = 'worse';
-
-              return {
-                country: country,
-                region: region,
-                equivalentSalary: Math.round(adjustedSalary),
-                salaryInOriginCurrency: Math.round(salaryInOriginCurrency),
-                currency: country.currency,
-                currencySymbol: country.currencySymbol,
-                costOfLivingIndex: destCOLIndex,
-                rentIndex: region.rentIndex || destCOLIndex * 0.8,
-                purchasingPowerIndex: destPPIndex,
-                ratio: ratio,
-                status: status,
-                gdpPpp: country.gdpPppPerCapita
-              };
-            });
-          })
-          .flat()
-          .sort((a, b) => b.ratio - a.ratio);
-
         set({ 
-          calculatedResults: results, 
+          calculatedResults: result.results, 
           isCalculated: true,
-          originCountry: originCountry as Country,
-          originRegion: originRegion as Region,
-          salaryInUSD,
+          originCountry: result.originCountry,
+          originRegion: result.originRegion,
+          salaryInUSD: result.salaryInUSD,
           isLoading: false
         });
 
