@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './i18n/index';
 import LoadingSpinner from './components/UI/LoadingSpinner';
 import { initAnalytics, trackPageView } from './lib/analytics';
