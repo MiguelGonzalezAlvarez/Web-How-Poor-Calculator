@@ -20,9 +20,13 @@
   background: white;
   border-radius: 20px;
   padding: 32px;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  box-shadow: 0 10px 15px -3px rgb(0 0 10 / 0.1);
   border: 1px solid #e2e8f0;
   margin-bottom: 40px;
+  
+  > :first-child {
+    margin-bottom: 20px;
+  }
 }
 
 .inputGrid {

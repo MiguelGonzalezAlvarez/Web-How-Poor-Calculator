@@ -54,6 +54,8 @@ import ErrorBoundary from '../components/UI/ErrorBoundary';
 import ExecutiveSummary from '../components/UI/ExecutiveSummary';
 import QuickActions from '../components/UI/QuickActions';
 import QuickModeToggle from '../components/UI/QuickModeToggle';
+import ReverseCalculatorToggle from '../components/UI/ReverseCalculatorToggle';
+import RealSavingsCard from '../components/UI/RealSavingsCard';
 import { CardSkeleton, TableSkeleton, ChartSkeleton } from '../components/UI/SectionSkeleton';
 import { ToastProvider } from '../context/ToastContext';
 import { useSEO } from '../components/SEO/useSEO';
@@ -62,6 +64,7 @@ import ExportButton from '../components/UI/ExportButton';
 import EnhancedExportButton from '../components/UI/EnhancedExportButton';
 import AffiliateLinks from '../components/UI/AffiliateLinks';
 import OnboardingTour from '../components/UI/OnboardingTour';
+import QuickPreview from '../components/UI/QuickPreview';
 import styles from './Home.module.scss';
 
 const ONBOARDING_KEY = 'how-poor-onboarding-seen';
@@ -120,6 +123,8 @@ const HomeContent: React.FC = () => {
       <main className={styles.main}>
         <div className={styles.container}>
           <section className={styles.inputSection} aria-label="Formulario de búsqueda">
+            <ReverseCalculatorToggle />
+            
             <div className={styles.inputGrid}>
               <SalaryInput />
               <CurrencySelector />
@@ -155,6 +160,8 @@ const HomeContent: React.FC = () => {
             </div>
           </section>
 
+          <QuickPreview />
+
           <HistoryPanel />
 
           <ScenariosManager />
@@ -186,6 +193,8 @@ const HomeContent: React.FC = () => {
               </motion.div>
 
               <ExecutiveSummary />
+
+              <RealSavingsCard />
 
               <QuickActions />
 

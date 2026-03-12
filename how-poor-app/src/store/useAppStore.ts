@@ -38,11 +38,14 @@ export const useAppStore = create<AppState>()(
   savedScenarios: [],
   quickMode: false,
   liveDataMode: false,
+  reverseMode: false,
 
   setQuickMode: (mode: boolean) => set({ quickMode: mode }),
   toggleQuickMode: () => set((state) => ({ quickMode: !state.quickMode })),
   setLiveDataMode: (mode: boolean) => set({ liveDataMode: mode }),
   toggleLiveDataMode: () => set((state) => ({ liveDataMode: !state.liveDataMode })),
+  setReverseMode: (mode: boolean) => set({ reverseMode: mode }),
+  toggleReverseMode: () => set((state) => ({ reverseMode: !state.reverseMode })),
 
       setSalary: (salary: string) => set({ salary }),
       

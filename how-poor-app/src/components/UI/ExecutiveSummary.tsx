@@ -10,7 +10,8 @@ const ExecutiveSummary: React.FC = () => {
     currency, 
     calculatedResults, 
     originCountry,
-    originRegion 
+    originRegion,
+    salaryType
   } = useAppStore();
 
   if (!calculatedResults.length || !salary || !originCountry) {
@@ -18,6 +19,7 @@ const ExecutiveSummary: React.FC = () => {
   }
 
   const salaryNum = parseFloat(salary.replace(/[^0-9.-]/g, '')) || 0;
+  const isNet = salaryType === 'net';
   const bestResult = calculatedResults[0];
   const totalDestinations = calculatedResults.length;
   
@@ -26,6 +28,26 @@ const ExecutiveSummary: React.FC = () => {
   const worseCount = calculatedResults.filter(r => r.status === 'worse').length;
 
   const ranking = 1 + calculatedResults.findIndex(r => r.ratio < 1);
+
+  const originCOL = originRegion?.costOfLivingIndex || originCountry.costOfLivingIndex;
+  const originRent = originRegion?.rentIndex || originCOL * 0.8;
+  
+  const monthlySalary = salaryNum / 12;
+  const monthlyNet = isNet ? monthlySalary : monthlySalary * 0.75;
+  const currentRent = (originRent / 100) * 1500;
+  const currentExpenses = (originCOL / 100) * 2000;
+  const currentSavings = monthlyNet - currentRent - currentExpenses;
+
+  const destCOL = bestResult.costOfLivingIndex;
+  const destRent = bestResult.rentIndex;
+  const destMonthlyRent = (destRent / 100) * 1500;
+  const destMonthlyExpenses = (destCOL / 100) * 2000;
+  const equivalentMonthly = bestResult.equivalentSalary / 12;
+  const destMonthlyNet = isNet ? equivalentMonthly : equivalentMonthly * 0.75;
+  const destSavings = destMonthlyNet - destMonthlyRent - destMonthlyExpenses;
+  
+  const savingsDiff = currentSavings > 0 ? ((destSavings - currentSavings) / currentSavings) * 100 : 0;
+  const isBetterForSavings = savingsDiff > 0;
 
   return (
     <div className={styles.summary}>
@@ -46,6 +68,21 @@ const ExecutiveSummary: React.FC = () => {
               {bestResult.country.flag} {i18n.language === 'es' ? bestResult.region?.nameEs : bestResult.region?.name}
             </span>
           </div>
+          {currentSavings > 0 && (
+            <div className={`${styles.savingsNote} ${isBetterForSavings ? styles.positive : styles.negative}`}>
+              <span className={styles.savingsIcon}>{isBetterForSavings ? '📈' : '📉'}</span>
+              <span className={styles.savingsText}>
+                {i18n.language === 'es' 
+                  ? isBetterForSavings 
+                    ? `Tus ahorros mejorarían un ${Math.round(savingsDiff)}%`
+                    : `Tus ahorros bajaría un ${Math.round(Math.abs(savingsDiff))}%`
+                  : isBetterForSavings
+                    ? `Your savings would improve by ${Math.round(savingsDiff)}%`
+                    : `Your savings would drop by ${Math.round(Math.abs(savingsDiff))}%`
+                }
+              </span>
+            </div>
+          )}
         </div>
       </div>
 

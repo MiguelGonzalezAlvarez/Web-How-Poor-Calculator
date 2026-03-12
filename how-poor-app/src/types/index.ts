@@ -121,6 +121,7 @@ export interface AppState {
   savedScenarios: Scenario[];
   quickMode: boolean;
   liveDataMode: boolean;
+  reverseMode: boolean;
   setSalary: (salary: string) => void;
   setCurrency: (currency: string) => void;
   setSelectedCountry: (country: string | null) => void;
@@ -150,6 +151,8 @@ export interface AppState {
   toggleQuickMode: () => void;
   setLiveDataMode: (mode: boolean) => void;
   toggleLiveDataMode: () => void;
+  setReverseMode: (mode: boolean) => void;
+  toggleReverseMode: () => void;
 }
 
 export interface SearchHistoryItem {

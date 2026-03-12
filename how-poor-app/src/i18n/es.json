@@ -789,5 +789,32 @@
     "off": "OFF",
     "description": "Usa tasas de cambio del BCE (actualización diaria)",
     "staleWarning": "Los datos pueden variar según el tipo de cambio actual"
+  },
+  "reverseCalculator": {
+    "title": "Quiero saber:",
+    "equivalent": "Cuánto necesito",
+    "offer": "Cuánto es mi oferta",
+    "descriptionEquivalent": "Descubre el salario que necesitarías para mantener tu nivel de vida",
+    "descriptionOffer": "Valida si la oferta que tienes compensa la subida de coste de vida"
+  },
+  "realSavings": {
+    "title": "Tu Nivel de Vida Real",
+    "subtitle": "Cuánto puedes AHORRAR realmente - no solo cuánto ganas",
+    "currentStatus": "Tu situación actual",
+    "currentSalary": "Salario bruto anual",
+    "estimatedNet": "Neto estimado",
+    "estimatedRent": "Alquiler estimado",
+    "potentialSavings": "Ahorro potencial",
+    "destinations": "Comparación por destino",
+    "bestOption": "Mejor opción: mantienes tu nivel de ahorro",
+    "equivalent": "Salario equiv.",
+    "savings": "Ahorro",
+    "warning": "⚠️ En {country} tu nivel de vida bajaría un {diff}% - necesitas más salario para mantener tu estándar"
+  },
+  "quickPreview": {
+    "low": "Salario bajo",
+    "medium": "Salario medio",
+    "high": "Salario alto",
+    "withSalary": "Con {salary} en esta región"
   }
 }

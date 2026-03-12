@@ -789,5 +789,32 @@
     "off": "OFF",
     "description": "Use ECB exchange rates (updated daily)",
     "staleWarning": "Results may vary based on current exchange rates"
+  },
+  "reverseCalculator": {
+    "title": "I want to know:",
+    "equivalent": "What I need",
+    "offer": "My offer value",
+    "descriptionEquivalent": "Find out the salary you'd need to maintain your lifestyle",
+    "descriptionOffer": "Check if the offer compensates for the higher cost of living"
+  },
+  "realSavings": {
+    "title": "Your Real Lifestyle",
+    "subtitle": "What you can REALLY save - not just what you earn",
+    "currentStatus": "Your current situation",
+    "currentSalary": "Annual gross salary",
+    "estimatedNet": "Estimated net",
+    "estimatedRent": "Estimated rent",
+    "potentialSavings": "Potential savings",
+    "destinations": "Comparison by destination",
+    "bestOption": "Best option: you maintain your savings level",
+    "equivalent": "Equiv. salary",
+    "savings": "Savings",
+    "warning": "⚠️ In {country} your lifestyle would drop by {diff}% - you need more salary to maintain your standard"
+  },
+  "quickPreview": {
+    "low": "Low salary",
+    "medium": "Medium salary",
+    "high": "High salary",
+    "withSalary": "With {salary} in this region"
   }
 }
