@@ -1,0 +1,194 @@
+.container {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.taxSection {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+}
+
+.taxGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.taxItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.taxLabel {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.taxValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+
+  .highlight & {
+    color: var(--success);
+    font-size: 18px;
+  }
+}
+
+.taxNote {
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: center;
+  margin: 0;
+}
+
+.categories {
+  margin-bottom: 20px;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 180px;
+}
+
+.categoryIcon {
+  font-size: 20px;
+}
+
+.categoryName {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.categoryAmount {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  min-width: 80px;
+  text-align: right;
+}
+
+.categoryBar {
+  flex: 1;
+  height: 8px;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+.categoryFill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.categoryPercent {
+  font-size: 12px;
+  color: var(--text-light);
+  min-width: 40px;
+  text-align: right;
+}
+
+.totalSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 2px solid var(--border-color);
+}
+
+.totalItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.totalLabel {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.totalValue {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 16px;
+  }
+
+  .taxGrid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .category {
+    flex-wrap: wrap;
+  }
+
+  .categoryHeader {
+    min-width: 100%;
+  }
+
+  .categoryBar {
+    order: 3;
+    min-width: 100%;
+    margin-top: 8px;
+  }
+
+  .totalSection {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

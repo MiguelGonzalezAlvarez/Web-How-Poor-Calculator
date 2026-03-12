@@ -1,0 +1,147 @@
+.container {
+  background: var(--card-background);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.marketInfo {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.marketCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 10px;
+  background: var(--background);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.marketIcon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.marketInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.marketLabel {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.marketValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.projectionSection {
+  margin-bottom: 20px;
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 14px 0;
+  }
+}
+
+.projectionList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.projectionCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: var(--background);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.projInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.projName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.projMonthly {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.projReturns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.projLabel {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.projValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--success-color);
+}
+
+.disclaimer {
+  padding: 12px;
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid var(--warning-color);
+
+  p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}

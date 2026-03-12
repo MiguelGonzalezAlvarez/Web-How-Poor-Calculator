@@ -1,0 +1,265 @@
+.container {
+  background: var(--card-background, #fff);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a1a);
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+  margin: 0;
+}
+
+.originSection {
+  margin-bottom: 24px;
+}
+
+.sectionLabel {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary, #666);
+  margin-bottom: 12px;
+}
+
+.originCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #fff 100%);
+  border-radius: 12px;
+  border: 2px solid #0ea5e9;
+  margin-bottom: 16px;
+}
+
+.originFlag {
+  font-size: 2rem;
+}
+
+.originName {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.originScore {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.scoreValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0ea5e9;
+}
+
+.scoreLabel {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricHeader {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.metricIcon {
+  font-size: 0.9rem;
+}
+
+.metricName {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #666);
+}
+
+.metricBar {
+  height: 6px;
+  background: var(--background-secondary, #e5e7eb);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.metricFill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.metricScore {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.comparisonSection {
+  margin-bottom: 20px;
+}
+
+.comparisonTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary, #1a1a1a);
+  margin: 0 0 12px 0;
+}
+
+.comparisonList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comparisonCard {
+  background: var(--background-secondary, #f8f9fa);
+  border-radius: 12px;
+  padding: 16px;
+  border: 2px solid transparent;
+
+  &.better {
+    border-color: #22c55e;
+    background: linear-gradient(135deg, #f0fdf4 0%, #fff 100%);
+  }
+
+  &.worse {
+    border-color: #ef4444;
+    background: linear-gradient(135deg, #fef2f2 0%, #fff 100%);
+  }
+}
+
+.comparisonHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.comparisonFlag {
+  font-size: 1.5rem;
+}
+
+.comparisonName {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.comparisonBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  color: #6b7280;
+
+  &.badgeBetter {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  &.badgeWorse {
+    background: #fef2f2;
+    color: #991b1b;
+  }
+}
+
+.comparisonMetrics {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+}
+
+.compMetric {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.compMetricName {
+  font-size: 0.9rem;
+}
+
+.compMetricScore {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.compMetricDiff {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.comparisonOverall {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overallLabel {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+}
+
+.overallValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-secondary, #666);
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}

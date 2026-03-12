@@ -1,0 +1,372 @@
+export interface CityData {
+  id: string;
+  name: string;
+  countryId: string;
+  costIndex: number;
+  rentIndex: number;
+  groceriesIndex: number;
+  restaurantsIndex: number;
+  transportIndex: number;
+  utilitiesIndex: number;
+  qualityOfLife: number;
+  safety: number;
+  climate: number;
+  startupsScore: number;
+  averageSalary: number;
+  remoteFriendly: number;
+}
+
+export const citiesData: CityData[] = [
+  {
+    id: 'nyc',
+    name: 'New York',
+    countryId: 'us',
+    costIndex: 100,
+    rentIndex: 100,
+    groceriesIndex: 100,
+    restaurantsIndex: 100,
+    transportIndex: 100,
+    utilitiesIndex: 100,
+    qualityOfLife: 72,
+    safety: 62,
+    climate: 65,
+    startupsScore: 94,
+    averageSalary: 85000,
+    remoteFriendly: 85
+  },
+  {
+    id: 'sf',
+    name: 'San Francisco',
+    countryId: 'us',
+    costIndex: 98,
+    rentIndex: 105,
+    groceriesIndex: 95,
+    restaurantsIndex: 105,
+    transportIndex: 90,
+    utilitiesIndex: 95,
+    qualityOfLife: 75,
+    safety: 58,
+    climate: 85,
+    startupsScore: 98,
+    averageSalary: 95000,
+    remoteFriendly: 80
+  },
+  {
+    id: 'madrid',
+    name: 'Madrid',
+    countryId: 'es',
+    costIndex: 58,
+    rentIndex: 55,
+    groceriesIndex: 55,
+    restaurantsIndex: 60,
+    transportIndex: 45,
+    utilitiesIndex: 50,
+    qualityOfLife: 78,
+    safety: 80,
+    climate: 90,
+    startupsScore: 72,
+    averageSalary: 45000,
+    remoteFriendly: 75
+  },
+  {
+    id: 'barcelona',
+    name: 'Barcelona',
+    countryId: 'es',
+    costIndex: 62,
+    rentIndex: 65,
+    groceriesIndex: 58,
+    restaurantsIndex: 65,
+    transportIndex: 50,
+    utilitiesIndex: 52,
+    qualityOfLife: 80,
+    safety: 75,
+    climate: 95,
+    startupsScore: 78,
+    averageSalary: 42000,
+    remoteFriendly: 78
+  },
+  {
+    id: 'berlin',
+    name: 'Berlin',
+    countryId: 'de',
+    costIndex: 65,
+    rentIndex: 60,
+    groceriesIndex: 60,
+    restaurantsIndex: 68,
+    transportIndex: 55,
+    utilitiesIndex: 65,
+    qualityOfLife: 82,
+    safety: 75,
+    climate: 55,
+    startupsScore: 88,
+    averageSalary: 55000,
+    remoteFriendly: 88
+  },
+  {
+    id: 'munich',
+    name: 'Munich',
+    countryId: 'de',
+    costIndex: 72,
+    rentIndex: 75,
+    groceriesIndex: 62,
+    restaurantsIndex: 70,
+    transportIndex: 58,
+    utilitiesIndex: 62,
+    qualityOfLife: 85,
+    safety: 85,
+    climate: 50,
+    startupsScore: 80,
+    averageSalary: 60000,
+    remoteFriendly: 75
+  },
+  {
+    id: 'london',
+    name: 'London',
+    countryId: 'gb',
+    costIndex: 85,
+    rentIndex: 95,
+    groceriesIndex: 75,
+    restaurantsIndex: 85,
+    transportIndex: 95,
+    utilitiesIndex: 80,
+    qualityOfLife: 78,
+    safety: 65,
+    climate: 50,
+    startupsScore: 92,
+    averageSalary: 65000,
+    remoteFriendly: 70
+  },
+  {
+    id: 'lisbon',
+    name: 'Lisbon',
+    countryId: 'pt',
+    costIndex: 55,
+    rentIndex: 52,
+    groceriesIndex: 50,
+    restaurantsIndex: 55,
+    transportIndex: 40,
+    utilitiesIndex: 45,
+    qualityOfLife: 76,
+    safety: 78,
+    climate: 92,
+    startupsScore: 68,
+    averageSalary: 35000,
+    remoteFriendly: 95
+  },
+  {
+    id: 'porto',
+    name: 'Porto',
+    countryId: 'pt',
+    costIndex: 48,
+    rentIndex: 42,
+    groceriesIndex: 45,
+    restaurantsIndex: 48,
+    transportIndex: 35,
+    utilitiesIndex: 42,
+    qualityOfLife: 74,
+    safety: 80,
+    climate: 88,
+    startupsScore: 60,
+    averageSalary: 30000,
+    remoteFriendly: 92
+  },
+  {
+    id: 'amsterdam',
+    name: 'Amsterdam',
+    countryId: 'nl',
+    costIndex: 78,
+    rentIndex: 85,
+    groceriesIndex: 70,
+    restaurantsIndex: 80,
+    transportIndex: 70,
+    utilitiesIndex: 75,
+    qualityOfLife: 85,
+    safety: 78,
+    climate: 55,
+    startupsScore: 90,
+    averageSalary: 58000,
+    remoteFriendly: 82
+  },
+  {
+    id: 'paris',
+    name: 'Paris',
+    countryId: 'fr',
+    costIndex: 75,
+    rentIndex: 80,
+    groceriesIndex: 70,
+    restaurantsIndex: 78,
+    transportIndex: 75,
+    utilitiesIndex: 72,
+    qualityOfLife: 80,
+    safety: 68,
+    climate: 55,
+    startupsScore: 85,
+    averageSalary: 52000,
+    remoteFriendly: 72
+  },
+  {
+    id: 'mexico-city',
+    name: 'Mexico City',
+    countryId: 'mx',
+    costIndex: 42,
+    rentIndex: 35,
+    groceriesIndex: 38,
+    restaurantsIndex: 42,
+    transportIndex: 25,
+    utilitiesIndex: 30,
+    qualityOfLife: 65,
+    safety: 45,
+    climate: 75,
+    startupsScore: 75,
+    averageSalary: 25000,
+    remoteFriendly: 85
+  },
+  {
+    id: 'tijuana',
+    name: 'Tijuana',
+    countryId: 'mx',
+    costIndex: 35,
+    rentIndex: 28,
+    groceriesIndex: 32,
+    restaurantsIndex: 35,
+    transportIndex: 20,
+    utilitiesIndex: 25,
+    qualityOfLife: 55,
+    safety: 35,
+    climate: 80,
+    startupsScore: 45,
+    averageSalary: 18000,
+    remoteFriendly: 80
+  },
+  {
+    id: 'toronto',
+    name: 'Toronto',
+    countryId: 'ca',
+    costIndex: 72,
+    rentIndex: 70,
+    groceriesIndex: 68,
+    restaurantsIndex: 72,
+    transportIndex: 65,
+    utilitiesIndex: 70,
+    qualityOfLife: 80,
+    safety: 72,
+    climate: 50,
+    startupsScore: 82,
+    averageSalary: 65000,
+    remoteFriendly: 78
+  },
+  {
+    id: 'vancouver',
+    name: 'Vancouver',
+    countryId: 'ca',
+    costIndex: 75,
+    rentIndex: 78,
+    groceriesIndex: 70,
+    restaurantsIndex: 75,
+    transportIndex: 60,
+    utilitiesIndex: 68,
+    qualityOfLife: 82,
+    safety: 78,
+    climate: 60,
+    startupsScore: 75,
+    averageSalary: 62000,
+    remoteFriendly: 80
+  },
+  {
+    id: 'sydney',
+    name: 'Sydney',
+    countryId: 'au',
+    costIndex: 82,
+    rentIndex: 90,
+    groceriesIndex: 75,
+    restaurantsIndex: 82,
+    transportIndex: 70,
+    utilitiesIndex: 75,
+    qualityOfLife: 84,
+    safety: 80,
+    climate: 92,
+    startupsScore: 78,
+    averageSalary: 70000,
+    remoteFriendly: 72
+  },
+  {
+    id: 'melbourne',
+    name: 'Melbourne',
+    countryId: 'au',
+    costIndex: 78,
+    rentIndex: 82,
+    groceriesIndex: 72,
+    restaurantsIndex: 78,
+    transportIndex: 68,
+    utilitiesIndex: 72,
+    qualityOfLife: 83,
+    safety: 78,
+    climate: 75,
+    startupsScore: 80,
+    averageSalary: 68000,
+    remoteFriendly: 75
+  },
+  {
+    id: 'dubai',
+    name: 'Dubai',
+    countryId: 'ae',
+    costIndex: 68,
+    rentIndex: 70,
+    groceriesIndex: 60,
+    restaurantsIndex: 75,
+    transportIndex: 55,
+    utilitiesIndex: 45,
+    qualityOfLife: 70,
+    safety: 88,
+    climate: 35,
+    startupsScore: 82,
+    averageSalary: 75000,
+    remoteFriendly: 65
+  },
+  {
+    id: 'tokyo',
+    name: 'Tokyo',
+    countryId: 'jp',
+    costIndex: 70,
+    rentIndex: 65,
+    groceriesIndex: 72,
+    restaurantsIndex: 65,
+    transportIndex: 75,
+    utilitiesIndex: 85,
+    qualityOfLife: 88,
+    safety: 95,
+    climate: 70,
+    startupsScore: 85,
+    averageSalary: 50000,
+    remoteFriendly: 68
+  },
+  {
+    id: 'buenos-aires',
+    name: 'Buenos Aires',
+    countryId: 'ar',
+    costIndex: 35,
+    rentIndex: 30,
+    groceriesIndex: 38,
+    restaurantsIndex: 40,
+    transportIndex: 20,
+    utilitiesIndex: 28,
+    qualityOfLife: 62,
+    safety: 45,
+    climate: 78,
+    startupsScore: 58,
+    averageSalary: 22000,
+    remoteFriendly: 90
+  }
+];
+
+export const getCitiesByCountry = (countryId: string): CityData[] => {
+  return citiesData.filter(city => city.countryId === countryId);
+};
+
+export const getCityById = (cityId: string): CityData | undefined => {
+  return citiesData.find(city => city.id === cityId);
+};
+
+export const getAllCities = (): CityData[] => {
+  return citiesData;
+};

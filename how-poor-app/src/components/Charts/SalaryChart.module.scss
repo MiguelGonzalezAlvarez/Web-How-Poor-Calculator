@@ -1,0 +1,84 @@
+.chartContainer {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.chartTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.chart {
+  width: 100%;
+}
+
+.tooltip {
+  background: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.15);
+  border: 1px solid #e2e8f0;
+}
+
+.tooltipTitle {
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.tooltipSalary,
+.tooltipEquivalent,
+.tooltipRatio {
+  font-size: 13px;
+  color: #475569;
+  margin-bottom: 4px;
+}
+
+.tooltipSalary {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.tooltipEquivalent {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+@media (max-width: 640px) {
+  .chartContainer {
+    padding: 16px;
+  }
+  
+  .legend {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}

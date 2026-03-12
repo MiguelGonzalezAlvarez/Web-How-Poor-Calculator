@@ -1,0 +1,170 @@
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.salaryDisplay {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.salaryValue {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.salaryPeriod {
+  font-size: 16px;
+  color: #94a3b8;
+}
+
+.conversion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.conversionLabel {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.conversionValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.percentile {
+  margin-bottom: 24px;
+}
+
+.percentileLabel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.percentileValue {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.percentileBar {
+  position: relative;
+  height: 8px;
+  background: linear-gradient(90deg, #ef4444 0%, #f59e0b 25%, #22c55e 50%, #22c55e 75%, #2563eb 100%);
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.percentileFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: transparent;
+  border-radius: 4px;
+}
+
+.percentileMarker {
+  position: absolute;
+  top: -4px;
+  width: 4px;
+  height: 16px;
+  background: #0f172a;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.3);
+}
+
+.percentileLegend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.originInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.infoLabel {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.infoValue {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 20px;
+  }
+  
+  .salaryValue {
+    font-size: 28px;
+  }
+  
+  .originInfo {
+    grid-template-columns: 1fr;
+  }
+}

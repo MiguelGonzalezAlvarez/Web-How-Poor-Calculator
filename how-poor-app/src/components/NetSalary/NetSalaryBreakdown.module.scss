@@ -1,0 +1,194 @@
+.container {
+  background: var(--card-background, #fff);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a1a);
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+  margin: 0;
+}
+
+.summaryCard {
+  background: var(--background-secondary, #f8f9fa);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+
+  &.target {
+    border-top: 1px dashed var(--border-color, #ddd);
+    margin-top: 8px;
+    padding-top: 16px;
+
+    .summaryValue {
+      font-size: 1.5rem;
+      color: #22c55e;
+    }
+  }
+}
+
+.summaryLabel {
+  font-size: 0.95rem;
+  color: var(--text-secondary, #666);
+}
+
+.summaryValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.arrow {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--text-secondary, #666);
+}
+
+.taxBreakdown {
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary, #1a1a1a);
+  margin: 0 0 12px 0;
+}
+
+.taxBar {
+  display: flex;
+  height: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.taxSegment {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.taxLegend {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.legendLabel {
+  color: var(--text-secondary, #666);
+  flex: 1;
+}
+
+.legendValue {
+  font-weight: 600;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.monthlyCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #fff 100%);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+}
+
+.monthlyItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  &.net {
+    .monthlyValue {
+      color: #22c55e;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.monthlyLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #666);
+}
+
+.monthlyValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.monthlyDivider {
+  font-size: 1.5rem;
+  color: var(--text-secondary, #666);
+}
+
+.totalTax {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #fef2f2;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.taxAmount {
+  font-weight: 700;
+  color: #ef4444;
+}
+
+.note {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #666);
+  text-align: center;
+  padding: 12px;
+  background: var(--background-secondary, #f8f9fa);
+  border-radius: 8px;
+}

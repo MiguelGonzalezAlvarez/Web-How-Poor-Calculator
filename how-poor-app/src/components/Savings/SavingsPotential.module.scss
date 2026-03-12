@@ -1,0 +1,240 @@
+.container {
+  background: var(--card-background, #fff);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a1a);
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+  margin: 0;
+}
+
+.lifestyleSelector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.selectorLabel {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+}
+
+.selectorButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.selectorBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 2px solid var(--border-color, #e5e7eb);
+  border-radius: 20px;
+  background: var(--background-secondary, #f8f9fa);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #3b82f6;
+  }
+
+  &.active {
+    border-color: #3b82f6;
+    background: #eff6ff;
+    color: #1d4ed8;
+  }
+}
+
+.mainNumbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.numberCard {
+  background: var(--background-secondary, #f8f9fa);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &.highlight {
+    background: linear-gradient(135deg, #dcfce7 0%, #f0fdf4 100%);
+    border: 2px solid #22c55e;
+
+    .numberValue {
+      color: #16a34a;
+    }
+  }
+}
+
+.numberLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #666);
+}
+
+.numberValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.savingsGauge {
+  background: var(--background-secondary, #f8f9fa);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.gaugeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.gaugePercent {
+  font-weight: 700;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.gaugeTrack {
+  height: 12px;
+  background: var(--border-color, #e5e7eb);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.gaugeFill {
+  height: 100%;
+  border-radius: 6px;
+}
+
+.gaugeLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-secondary, #666);
+}
+
+.gradeBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 12px;
+  border-radius: 12px;
+  color: white;
+}
+
+.annualSummary {
+  background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.annualItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.annualLabel {
+  font-size: 0.95rem;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.annualValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #d97706;
+}
+
+.goalsSection {
+  margin-bottom: 16px;
+}
+
+.goalsTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary, #1a1a1a);
+  margin: 0 0 12px 0;
+}
+
+.goalsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.goalItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: var(--background-secondary, #f8f9fa);
+  border-radius: 8px;
+}
+
+.goalIcon {
+  font-size: 1.25rem;
+}
+
+.goalName {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--text-primary, #1a1a1a);
+}
+
+.goalTime {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #3b82f6;
+  white-space: nowrap;
+}
+
+.insight {
+  background: var(--background-secondary, #f8f9fa);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-primary, #1a1a1a);
+    line-height: 1.5;
+  }
+}
