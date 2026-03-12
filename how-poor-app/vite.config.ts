@@ -13,4 +13,17 @@ export default defineConfig({
   esbuild: {
     jsxInject: `import React from 'react'`,
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-charts': ['recharts'],
+          'vendor-maps': ['leaflet', 'react-leaflet'],
+          'vendor-pdf': ['jspdf', 'jspdf-autotable'],
+          'vendor-utils': ['date-fns', 'i18next', 'zustand', 'framer-motion'],
+        },
+      },
+    },
+  },
 })
