@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://how-poor-i-am.com/sitemap.xml
+
+Host: https://how-poor-i-am.com
